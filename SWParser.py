@@ -451,32 +451,24 @@ for line in decoded_data:
             natComment = ""
             natStatus = ""
 
-print ""
-print "=========================================================="
-print "================== Interface Objects ====================="
-print "=========================================================="
-print ""
-print "ifaceIfNum, ifaceName, ifaceType, interfaceZone, ifaceIp, ifaceMask, ifaceVlanTag, ifaceVlanParent, ifaceComment"
+print ("")
+print ("================== Interface Objects =====================")
+print ("")
+print ("ifaceIfNum, ifaceName, ifaceType, interfaceZone, ifaceIp, ifaceMask, ifaceVlanTag, ifaceVlanParent, ifaceComment")
 oInterfaces = collections.OrderedDict(sorted(interfaces.items()))
 for interface, interfaceFields in oInterfaces.iteritems():
-    print '%s,%s,%s,%s,%s,%s,%s,%s,%s' % (interfaceFields["ifaceIfNum"], interfaceFields["ifaceName"], interfaceFields["ifaceType"], interfaceFields["interfaceZone"], interfaceFields["ifaceIp"], interfaceFields["ifaceMask"], interfaceFields["ifaceVlanTag"], interfaceFields["ifaceVlanParent"], interfaceFields["ifaceComment"])
+    print ('%s,%s,%s,%s,%s,%s,%s,%s,%s' % (interfaceFields["ifaceIfNum"], interfaceFields["ifaceName"], interfaceFields["ifaceType"], interfaceFields["interfaceZone"], interfaceFields["ifaceIp"], interfaceFields["ifaceMask"], interfaceFields["ifaceVlanTag"], interfaceFields["ifaceVlanParent"], interfaceFields["ifaceComment"]))
 
-print "=========================================================="
-print "================== Firewall Rules ========================"
-print "=========================================================="
-print ""
-print "RuleID,Source Zone,Dest Zone,Source Net,Dest Net, Dest Service, Action, Status, Comment"
+print ("================== Firewall Rules ========================")
+print ("RuleID,Source Zone,Dest Zone,Source Net,Dest Net, Dest Service, Action, Status, Comment")
 for x in rules:
     if x["ruleSrcZone"] != prevSrcZone or x["ruleDestZone"] != prevDestZone:
-        print '\n\nSource Zone: %s, Dest Zone: %s' % (x["ruleSrcZone"], x["ruleDestZone"])
-    print '%s,%s,%s,%s,%s,%s,%s,%s,%s' % (x["ruleID"], x["ruleSrcZone"], x["ruleDestZone"], x["ruleSrcNet"], x["ruleDestNet"], x["ruleDestService"], x["ruleAction"], x["ruleStatus"], x["ruleComment"])
+        print ('\n\nSource Zone: %s, Dest Zone: %s' % (x["ruleSrcZone"], x["ruleDestZone"]))
+    print ('%s,%s,%s,%s,%s,%s,%s,%s,%s' % (x["ruleID"], x["ruleSrcZone"], x["ruleDestZone"], x["ruleSrcNet"], x["ruleDestNet"], x["ruleDestService"], x["ruleAction"], x["ruleStatus"], x["ruleComment"]))
     prevSrcZone=x["ruleSrcZone"]
     prevDestZone=x["ruleDestZone"]
 
-print "=========================================================="
-print "================== Nat Rules ========================"
-print "=========================================================="
-print ""
+print ("================== Nat Rules ========================\n")
 print "natRuleID, natOrigSrc,  natTransSrc, natOrigService, natOrigDest, natTransDest, natTransService, natSrcInterface, natSrcZone, natDestInterface, natDestzone, natReflexive, natStatus, natComment"
 for x in natRules:
     if x['natSrcZone'] == 'Not Found':
