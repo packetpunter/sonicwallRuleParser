@@ -130,16 +130,6 @@ for line in decoded_data:
             ifaceVlanParent = re.search(str("^iface_vlan_parent_"+ifaceID+"=(.*)"), line).group(1)
             if not ifaceVlanParent:
                 ifaceVlanParent = 0
-        # print ifaceID
-        # print ifaceIfNum
-        # print ifaceName
-        # print ifaceType
-        # print interfaceZone
-        # print ifaceIp
-        # print ifaceMask
-        # print ifaceVlanTag
-        # print ifaceVlanParent
-        # print ifaceComment
         if ifaceID and ifaceIfNum and ifaceName and ifaceType and interfaceZone and ifaceComment and ifaceIp and ifaceMask and ifaceVlanTag and ifaceVlanParent:
             interfaces[ifaceIfNum] = {
                 "ifaceIfNum": ifaceIfNum,
