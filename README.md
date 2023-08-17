@@ -1,8 +1,9 @@
 # Sonicwall Rule Parser
 Parses Sonicwall Rules, Groups, and Services from a settings export file.
+### Note: this has been updated to work with Python3
 
 # Example Usage
-python ./parser.py sampleExport.exp
+python ./SWParser.py sampleExport.exp
 ```
 ==========================================================
 ================== Firewall Rules ========================
