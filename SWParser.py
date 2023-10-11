@@ -442,15 +442,13 @@ for line in decoded_data:
             natComment = ""
             natStatus = ""
 
-print ("")
-print ("================== Interface Objects =====================")
-print ("")
+print ("\n================== Interface Objects =====================\n")
 print ("ifaceIfNum, ifaceName, ifaceType, interfaceZone, ifaceIp, ifaceMask, ifaceVlanTag, ifaceVlanParent, ifaceComment")
 oInterfaces = collections.OrderedDict(sorted(interfaces.items()))
 for interface, interfaceFields in oInterfaces.items():
     print ('%s,%s,%s,%s,%s,%s,%s,%s,%s' % (interfaceFields["ifaceIfNum"], interfaceFields["ifaceName"], interfaceFields["ifaceType"], interfaceFields["interfaceZone"], interfaceFields["ifaceIp"], interfaceFields["ifaceMask"], interfaceFields["ifaceVlanTag"], interfaceFields["ifaceVlanParent"], interfaceFields["ifaceComment"]))
 
-print ("================== Firewall Rules ========================")
+print ("\n================== Firewall Rules ========================\n")
 print ("RuleID,Source Zone,Dest Zone,Source Net,Dest Net, Dest Service, Action, Status, Comment")
 for x in rules:
     if x["ruleSrcZone"] != prevSrcZone or x["ruleDestZone"] != prevDestZone:
@@ -459,7 +457,7 @@ for x in rules:
     prevSrcZone=x["ruleSrcZone"]
     prevDestZone=x["ruleDestZone"]
 
-print ("================== Nat Rules ========================\n")
+print ("\n================== Nat Rules ========================\n")
 print ("natRuleID, natOrigSrc,  natTransSrc, natOrigService, natOrigDest, natTransDest, natTransService, natSrcInterface, natSrcZone, natDestInterface, natDestzone, natReflexive, natStatus, natComment")
 for x in natRules:
     if x['natSrcZone'] == 'Not Found':
